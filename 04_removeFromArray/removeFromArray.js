@@ -1,21 +1,17 @@
-const removeFromArray = function() {
-    const values = arguments[0];
-    const arg = [];
-
-    for (i = 1; i < arguments.length; i++) {
-            arg.push(arguments[i]);
-    };
-
-
-    for (i = 0; i <= arg.length; i++) {
-        for (r=0; r <= values.length; r++) {
-            if (values[r] == arg[i]) {
-                values.splice(r, 1);
-            }
-        }
-    };
-
-return values;
-};
+//funtion that accepts an array and values
+//returns an array with all the values with matching types removed
+//if no values are passed, return an empty array
+function removeFromArray(arr, ...values) {
+  if (values.length === 0) {
+    return [];
+  }
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (!values.includes(arr[i])) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
 // Do not edit below this line
 module.exports = removeFromArray;
